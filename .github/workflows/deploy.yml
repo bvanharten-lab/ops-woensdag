@@ -25,7 +25,7 @@ jobs:
         run: |
           mkdir -p dist
           sed -e "s|__API_URL__|${API_URL}|g" -e "s|__CLIENT_ID__|${CLIENT_ID}|g" index.html > dist/index.html
-          cp .nojekyll dist/
+          touch dist/.nojekyll
           if [ -z "$API_URL" ] || [ -z "$CLIENT_ID" ]; then echo "::warning::API_URL en/of CLIENT_ID zijn nog niet gezet (Settings → Secrets and variables → Actions → Variables). De site toont dan 'Geen verbinding'."; fi
       - uses: actions/configure-pages@v5
         with:
